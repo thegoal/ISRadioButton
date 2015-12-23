@@ -1,6 +1,3 @@
-# ISRadioButton
-
-
 # ISRadioButton 
 A highly customisable Radio Button for iOS using swift 
 Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift copy of DLRadioButton with a little extra functionality)
