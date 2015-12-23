@@ -54,6 +54,7 @@ class ISViewController: UIViewController {
             } else {
                 radio.iconSquare = false;
             }
+            
             // Uncomment this to put icon on the right side
 //            radio.iconOnRight = true;
             
