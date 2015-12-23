@@ -1,21 +1,28 @@
 # ISRadioButton 
 A highly customisable Radio Button for iOS using swift. 
+
 Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift copy of DLRadioButton with a little extra functionality)
 
 1. It have single selection ability for both radio and square button
 
 2. It have multiple selection ability for both radio and square button
 
-## Preview
+##Preview
 
 ![screenshot1](ISRadioButton_screenshot1.png)
 
-## Usage
+####Adding ISRadioButton to your project
 
-####To install:
+###Cocoapods
+
+1. Add a pod entry for ISRadioButton to your Podfile `pod 'ISRadioButton'`
+
+###Source files:
 *	Put `ISRadioButton.swift` in your project
 
-####To add radio buttons in interface builder:
+###Usage
+
+##Add radio buttons in interface builder:
 
 1.  Put some UIButtons onto a View and change the UIButtons' type to "custom".
 
@@ -29,7 +36,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 	![set otherButtons outlet](set_otherButtons_outlet.png)
 
-####To customize ISRadioButton:
+##To customize ISRadioButton:
 
 *	Simply set properties directly in Interface Builder.
 
@@ -39,7 +46,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 	
 	![ISRadioButton](ISRadioButton.png)
 	
-#### To add raido buttons programmatically, please refer to example project.
+### To add raido buttons programmatically, please refer to example project.
 
 ## Requirements
 
