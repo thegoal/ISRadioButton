@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class  ISRadioButton: UIButton {
+public class  ISRadioButton: UIButton {
     
     var indexPath:NSIndexPath!
     
@@ -221,7 +221,7 @@ class  ISRadioButton: UIButton {
         self.selected = false
     }
     
-    override func prepareForInterfaceBuilder () {
+    override public func prepareForInterfaceBuilder () {
         self.initRadioButton()
         self.drawButton()
     }
@@ -288,7 +288,7 @@ class  ISRadioButton: UIButton {
     
     // MARK: -- UIButton
     
-    override func titleColorForState(state:UIControlState) -> UIColor{
+    override public func titleColorForState(state:UIControlState) -> UIColor{
         if (state == UIControlState.Selected || state == UIControlState.Highlighted){
             var selectedOrHighlightedColor:UIColor!
             if (state == UIControlState.Selected) {
@@ -304,7 +304,7 @@ class  ISRadioButton: UIButton {
     
     // MARK: -- UIControl
     
-    override var selected: Bool {
+    override public var selected: Bool {
         didSet(oldValue) {
             if (multipleSelectionEnabled) {
                 if oldValue == true && self.selected == true {
@@ -321,7 +321,7 @@ class  ISRadioButton: UIButton {
     
     // MARK: -- UIView
 
-    required internal init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.initRadioButton()
     }
@@ -331,7 +331,7 @@ class  ISRadioButton: UIButton {
         self.initRadioButton()
     }
     
-    override func drawRect(rect:CGRect) {
+    override public func drawRect(rect:CGRect) {
         super.drawRect(rect)
         self.drawButton()
     }
