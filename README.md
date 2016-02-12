@@ -13,7 +13,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 ##Adding ISRadioButton to your project
 
-###Cocoapods
+###CocoaPods
 
 1. Add a pod entry for ISRadioButton to your Podfile `pod 'ISRadioButton'`
 
