@@ -163,7 +163,7 @@ public class  ISRadioButton: UIButton {
             self.titleLabel?.textAlignment = .Left
             self.contentHorizontalAlignment = .Left
         }
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.adjustsFontSizeToFitWidth = false
     }
     
     func drawIconWithSelection (selected:Bool) -> UIImage{
