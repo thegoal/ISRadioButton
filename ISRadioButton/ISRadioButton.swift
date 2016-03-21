@@ -9,64 +9,64 @@
 import UIKit
 
 @IBDesignable
-class  ISRadioButton: UIButton {
+public class  ISRadioButton: UIButton {
     
     var indexPath:NSIndexPath!
     
-//      Container for holding other buttons in same group.
+    //      Container for holding other buttons in same group.
     
     @IBOutlet var otherButtons: Array<ISRadioButton>?
     
-//      Size of icon, default is 15.0.
+    //      Size of icon, default is 15.0.
     
-    @IBInspectable var iconSize:CGFloat = 15.0
+    @IBInspectable public var iconSize:CGFloat = 15.0
     
-//    Size of selection indicator, default is iconSize * 0.5.
-
-    @IBInspectable var indicatorSize:CGFloat = 15.0 * 0.5
+    //    Size of selection indicator, default is iconSize * 0.5.
     
-//      Color of icon, default is black
+    @IBInspectable public var indicatorSize:CGFloat = 15.0 * 0.5
     
-    @IBInspectable var iconColor:UIColor =  UIColor.blackColor()
+    //      Color of icon, default is black
     
-//      Stroke width of icon, default is iconSize / 9.
+    @IBInspectable public var iconColor:UIColor =  UIColor.blackColor()
     
-    @IBInspectable var iconStrokeWidth:CGFloat = 1.6
+    //      Stroke width of icon, default is iconSize / 9.
     
-//      Color of selection indicator, default is black
+    @IBInspectable public var iconStrokeWidth:CGFloat = 1.6
     
-    @IBInspectable var indicatorColor:UIColor = UIColor.blackColor()
+    //      Color of selection indicator, default is black
     
-//      Margin width between icon and title, default is 10. 0.
-
-    @IBInspectable var marginWidth:CGFloat = 10.0
-
-//      Whether icon on the right side, default is NO.
-
-    @IBInspectable var iconOnRight:Bool = false
+    @IBInspectable public var indicatorColor:UIColor = UIColor.blackColor()
     
-//      Whether use square icon, default is NO.
+    //      Margin width between icon and title, default is 10. 0.
     
-    @IBInspectable var iconSquare:Bool = false
+    @IBInspectable public var marginWidth:CGFloat = 10.0
     
-//      Image for radio button icon (optional).
+    //      Whether icon on the right side, default is NO.
     
-    @IBInspectable var icon:UIImage!
+    @IBInspectable public var iconOnRight:Bool = false
     
-//      Image for radio button icon when selected (optional).
+    //      Whether use square icon, default is NO.
     
-    @IBInspectable var iconSelected:UIImage!
-   
-//      Whether enable multiple selection, default is NO.
-
-     @IBInspectable var multipleSelectionEnabled:Bool = false
+    @IBInspectable public var iconSquare:Bool = false
+    
+    //      Image for radio button icon (optional).
+    
+    @IBInspectable public var icon:UIImage!
+    
+    //      Image for radio button icon when selected (optional).
+    
+    @IBInspectable public var iconSelected:UIImage!
+    
+    //      Whether enable multiple selection, default is NO.
+    
+    @IBInspectable public var multipleSelectionEnabled:Bool = false
     
     var isChaining:Bool = false
     
     private var setOtherButtons:NSArray {
         
         get{
-           return otherButtons!
+            return otherButtons!
         }
         set (newValue) {
             if !isChaining {
@@ -82,9 +82,9 @@ class  ISRadioButton: UIButton {
             }
         }
     }
-
-   @IBInspectable var setIcon:UIImage {
-
+    
+    @IBInspectable public var setIcon:UIImage {
+        
         // Avoid to use getter it can be nill
         
         get{
@@ -97,7 +97,7 @@ class  ISRadioButton: UIButton {
         }
     }
     
-    @IBInspectable var setIconSelected:UIImage {
+    @IBInspectable public var setIconSelected:UIImage {
         
         // Avoid to use getter it can be nill
         
@@ -132,7 +132,7 @@ class  ISRadioButton: UIButton {
         }
     }
     
-// MARK: -- Helpers
+    // MARK: -- Helpers
     
     func drawButton (){
         if (icon == nil ||  self.icon.accessibilityIdentifier == "Generated Icon"){
@@ -163,15 +163,15 @@ class  ISRadioButton: UIButton {
             self.titleLabel?.textAlignment = .Left
             self.contentHorizontalAlignment = .Left
         }
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.adjustsFontSizeToFitWidth = false
     }
     
     func drawIconWithSelection (selected:Bool) -> UIImage{
         let rect:CGRect = CGRectMake(0, 0, iconSize, iconSize)
-
+        
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0);
         let context  = UIGraphicsGetCurrentContext()
-//        UIGraphicsPushContext(context!)
+        //        UIGraphicsPushContext(context!)
         // draw icon
         
         var iconPath:UIBezierPath!
@@ -185,8 +185,8 @@ class  ISRadioButton: UIButton {
         iconPath.lineWidth = iconStrokeWidth;
         iconPath.stroke()
         CGContextAddPath(context, iconPath.CGPath);
-
-         // draw indicator
+        
+        // draw indicator
         if (selected) {
             var indicatorPath:UIBezierPath!
             let indicatorRect:CGRect = CGRectMake((iconSize - indicatorSize) / 2, (iconSize - indicatorSize) / 2, indicatorSize, indicatorSize);
@@ -205,7 +205,7 @@ class  ISRadioButton: UIButton {
         }
         
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsPopContext()
+        //        UIGraphicsPopContext()
         UIGraphicsEndImageContext();
         
         image.accessibilityIdentifier = "Generated Icon";
@@ -221,11 +221,11 @@ class  ISRadioButton: UIButton {
         self.selected = false
     }
     
-    override func prepareForInterfaceBuilder () {
+    override public func prepareForInterfaceBuilder () {
         self.initRadioButton()
         self.drawButton()
     }
-
+    
     // MARK: -- ISRadiobutton
     
     //    @return Selected button in same group.
@@ -251,7 +251,7 @@ class  ISRadioButton: UIButton {
         
         let selectedButtons:NSMutableArray = NSMutableArray ()
         if self.selected {
-           selectedButtons.addObject(self)
+            selectedButtons.addObject(self)
         }
         for isRadioButton in self.otherButtons!  {
             if isRadioButton.selected {
@@ -268,7 +268,7 @@ class  ISRadioButton: UIButton {
             for isRadioButton in self.otherButtons!  {
                 isRadioButton.selected = false
             }
-         }
+        }
     }
     
     //    @return unselected button in same group.
@@ -288,7 +288,7 @@ class  ISRadioButton: UIButton {
     
     // MARK: -- UIButton
     
-    override func titleColorForState(state:UIControlState) -> UIColor{
+    override public func titleColorForState(state:UIControlState) -> UIColor{
         if (state == UIControlState.Selected || state == UIControlState.Highlighted){
             var selectedOrHighlightedColor:UIColor!
             if (state == UIControlState.Selected) {
@@ -304,7 +304,7 @@ class  ISRadioButton: UIButton {
     
     // MARK: -- UIControl
     
-    override var selected: Bool {
+    override public var selected: Bool {
         didSet(oldValue) {
             if (multipleSelectionEnabled) {
                 if oldValue == true && self.selected == true {
@@ -320,8 +320,8 @@ class  ISRadioButton: UIButton {
     }
     
     // MARK: -- UIView
-
-    required internal init(coder aDecoder: NSCoder) {
+    
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.initRadioButton()
     }
@@ -331,7 +331,7 @@ class  ISRadioButton: UIButton {
         self.initRadioButton()
     }
     
-    override func drawRect(rect:CGRect) {
+    override public func drawRect(rect:CGRect) {
         super.drawRect(rect)
         self.drawButton()
     }
