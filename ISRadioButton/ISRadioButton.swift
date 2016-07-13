@@ -217,7 +217,7 @@ public class  ISRadioButton: UIButton {
     }
     
     func initRadioButton () {
-        super.addTarget(self, action:"touchDown", forControlEvents:.TouchUpInside)
+        super.addTarget(self, action:#selector(ISRadioButton.touchDown), forControlEvents:.TouchUpInside)
         self.selected = false
     }
     
