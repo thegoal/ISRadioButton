@@ -46,7 +46,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 ## Requirements
 
-ARC, iOS 7.0
+ARC, iOS 8.0
 
 ## Author
 
