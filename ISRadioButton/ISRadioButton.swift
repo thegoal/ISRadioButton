@@ -112,7 +112,7 @@ public class  ISRadioButton: UIButton {
         }
     }
     
-    var setMultipleSelectionEnabled:Bool {
+    public var setMultipleSelectionEnabled:Bool {
         
         get{
             return multipleSelectionEnabled
@@ -230,7 +230,7 @@ public class  ISRadioButton: UIButton {
     
     //    @return Selected button in same group.
     
-    func selectedButton() -> ISRadioButton!{
+    public func selectedButton() -> ISRadioButton!{
         if !self.multipleSelectionEnabled {
             if self.selected {
                 return self
@@ -247,7 +247,7 @@ public class  ISRadioButton: UIButton {
     
     //    @return Selected buttons in same group, use it only if multiple selection is enabled.
     
-    func selectedButtons() -> NSMutableArray{
+    public func selectedButtons() -> NSMutableArray{
         
         let selectedButtons:NSMutableArray = NSMutableArray ()
         if self.selected {
@@ -263,7 +263,7 @@ public class  ISRadioButton: UIButton {
     
     //    Clears selection for other buttons in in same group.
     
-    func deselectOtherButtons() {
+    public func deselectOtherButtons() {
         if self.otherButtons != nil {
             for isRadioButton in self.otherButtons!  {
                 isRadioButton.selected = false
@@ -273,7 +273,7 @@ public class  ISRadioButton: UIButton {
     
     //    @return unselected button in same group.
     
-    func unSelectedButtons() -> NSArray{
+    public func unSelectedButtons() -> NSArray{
         let unSelectedButtons:NSMutableArray = NSMutableArray ()
         if self.selected {
             unSelectedButtons .addObject(self)

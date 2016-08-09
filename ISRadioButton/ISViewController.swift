@@ -34,7 +34,7 @@ class ISViewController: UIViewController {
         //            radio.iconOnRight = true;
 
         firstRadioButton.multipleSelectionEnabled = true
-        firstRadioButton.addTarget(self, action: "logSelectedButton:", forControlEvents: .TouchUpInside)
+        firstRadioButton.addTarget(self, action: #selector(ISViewController.logSelectedButton(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(firstRadioButton)
         
         let otherTitless:NSArray = NSArray(objects: "Custom Button with icon" ,"Custom circuler Button" ,"Custom square Button")
@@ -61,7 +61,7 @@ class ISViewController: UIViewController {
             radio.multipleSelectionEnabled = true
             radio.iconColor = UIColor.blackColor()
             radio.indicatorColor = UIColor.blackColor()
-            radio.addTarget(self, action: "logSelectedButton:", forControlEvents:.TouchUpInside)
+            radio.addTarget(self, action: #selector(ISViewController.logSelectedButton(_:)), forControlEvents:.TouchUpInside)
             otherButtons.addObject(radio)
             self.view.addSubview(radio)
             
