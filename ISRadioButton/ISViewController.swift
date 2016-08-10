@@ -22,7 +22,7 @@ class ISViewController: UIViewController {
         
         let firstRadioButton:ISRadioButton = ISRadioButton(frame: CGRectMake(20, 360, 200, 25))
         firstRadioButton.titleLabel?.font = UIFont.systemFontOfSize(14.0)
-        firstRadioButton.setTitle("Custom in Red", forState:.Normal)
+        firstRadioButton.setTitle("Custom Button with icon", forState:.Normal)
         firstRadioButton.iconColor = UIColor.magentaColor()
         firstRadioButton.indicatorColor = UIColor.magentaColor()
         firstRadioButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -37,7 +37,7 @@ class ISViewController: UIViewController {
         firstRadioButton.addTarget(self, action: #selector(ISViewController.logSelectedButton(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(firstRadioButton)
         
-        let otherTitless:NSArray = NSArray(objects: "Custom Button with icon" ,"Custom circuler Button" ,"Custom square Button")
+        let otherTitless:NSArray = NSArray(objects:"Custom square Button","Custom circuler Button" )
         
         let otherButtons:NSMutableArray = NSMutableArray();
         
