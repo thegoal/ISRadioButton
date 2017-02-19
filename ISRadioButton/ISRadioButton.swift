@@ -13,6 +13,12 @@ public class  ISRadioButton: UIButton {
     
     var indexPath:IndexPath!
     
+    public var animationDuration:CFTimeInterval = 0.03
+    
+    static let kGeneratedIconName:String = "Generated Icon"
+
+    static var  _groupModifing:Bool = false
+    
     //      Container for holding other buttons in same group.
     
     @IBOutlet var otherButtons: Array<ISRadioButton>?
@@ -61,39 +67,35 @@ public class  ISRadioButton: UIButton {
     
     @IBInspectable public var multipleSelectionEnabled:Bool = false
     
-    var isChaining:Bool = false
-    
     private var setOtherButtons:NSArray {
-        
         get{
             return otherButtons! as NSArray
         }
         set (newValue) {
-            if !isChaining {
-                otherButtons = newValue as? Array<ISRadioButton>
-                isChaining = true
-                for radioButton in otherButtons!{
-                    let others:NSMutableArray = NSMutableArray(array:otherButtons!)
-                    others.add(self)
-                    others.remove(radioButton)
-                    radioButton.setOtherButtons = others
+            if (!self.isGroupModifing()){
+                self.groupModifing(chaining: true)
+                let otherNewButtons:Array<ISRadioButton>? = newValue as? Array<ISRadioButton>
+                for radioButton in otherNewButtons!{
+                    let otherButtonsForCurrentButton:NSMutableArray = NSMutableArray(array:otherNewButtons!)
+                    otherButtonsForCurrentButton.add(self)
+                    otherButtonsForCurrentButton.remove(radioButton)
+                    radioButton.setOtherButtons = otherButtonsForCurrentButton
                 }
-                isChaining = false
+                self.groupModifing(chaining: false)
             }
+            self.otherButtons = newValue as? Array<ISRadioButton>
         }
     }
     
     @IBInspectable public var setIcon:UIImage {
-        
         // Avoid to use getter it can be nill
-        
         get{
             return icon
         }
         
         set (newValue){
             icon = newValue
-            self.setImage(icon, for: UIControlState())
+            self.setImage(icon, for: .normal)
         }
     }
     
@@ -112,38 +114,59 @@ public class  ISRadioButton: UIButton {
         }
     }
     
+    public var setAnimationDuration:CFTimeInterval{
+        get {
+            return animationDuration
+        }
+        
+        set(newValue) {
+            if (!self.isGroupModifing()){
+                self.groupModifing(chaining: true)
+                if self.otherButtons != nil {
+                    for radioButton in self.otherButtons!{
+                        radioButton.animationDuration = newValue
+                    }
+                }
+                self.groupModifing(chaining: false)
+            }
+            animationDuration = newValue
+        }
+    }
+    
+    
     public var setMultipleSelectionEnabled:Bool {
         
         get{
             return multipleSelectionEnabled
         }
         set (newValue) {
-            if !isChaining {
-                isChaining = true
-                multipleSelectionEnabled = newValue
-                
+            if (!self.isGroupModifing()){
+                self.groupModifing(chaining: true)
                 if self.otherButtons != nil {
                     for radioButton in self.otherButtons!{
                         radioButton.multipleSelectionEnabled = newValue
                     }
                 }
-                isChaining = false
+                self.groupModifing(chaining: false)
             }
+            multipleSelectionEnabled = newValue
         }
     }
+    
     
     // MARK: -- Helpers
     
     func drawButton (){
-        if (icon == nil ||  self.icon.accessibilityIdentifier == "Generated Icon"){
-            self.setIcon = self.drawIconWithSelection(false)
+        if (self.icon == nil){
+                self.setIcon = self.drawIconWithSelection(false)
         }else{
-            self.setIcon = icon
+            self.setIcon = self.icon ;
         }
-        if (iconSelected == nil ||  self.iconSelected.accessibilityIdentifier == "Generated Icon"){
-            self.setIconSelected = self.drawIconWithSelection(true)
+        
+        if (iconSelected == nil){
+                self.setIconSelected = self.drawIconWithSelection(true)
         }else{
-            self.setIconSelected = iconSelected
+            self.setIconSelected = self.iconSelected;
         }
         
         if self.otherButtons != nil {
@@ -167,11 +190,11 @@ public class  ISRadioButton: UIButton {
     }
     
     func drawIconWithSelection (_ selected:Bool) -> UIImage{
-        let rect:CGRect = CGRect(x: 0, y: 0, width: iconSize, height: iconSize)
         
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0);
+        let rect:CGRect = CGRect(x: 0, y: 0, width: iconSize, height: iconSize)
         let context  = UIGraphicsGetCurrentContext()
-        //        UIGraphicsPushContext(context!)
+//        UIGraphicsPushContext(context!)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0);
         // draw icon
         
         var iconPath:UIBezierPath!
@@ -205,10 +228,9 @@ public class  ISRadioButton: UIButton {
         }
         
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
-        //        UIGraphicsPopContext()
+//        UIGraphicsPopContext()
         UIGraphicsEndImageContext();
-        
-        image.accessibilityIdentifier = "Generated Icon";
+        image.accessibilityIdentifier = ISRadioButton.kGeneratedIconName;
         return image;
     }
     
@@ -222,7 +244,7 @@ public class  ISRadioButton: UIButton {
     
     func initRadioButton () {
         super.addTarget(self, action:#selector(ISRadioButton.touchDown), for:.touchUpInside)
-        self.isSelected = false
+//        self.isSelected = false
     }
     
     override public func prepareForInterfaceBuilder () {
@@ -231,6 +253,14 @@ public class  ISRadioButton: UIButton {
     }
     
     // MARK: -- ISRadiobutton
+    
+    func groupModifing(chaining:Bool) {
+        ISRadioButton._groupModifing = chaining
+    }
+    
+    func isGroupModifing() -> Bool {
+        return ISRadioButton._groupModifing
+    }
     
     //    @return Selected button in same group.
     
@@ -257,8 +287,8 @@ public class  ISRadioButton: UIButton {
         if self.isSelected {
             selectedButtons.add(self)
         }
-        for isRadioButton in self.otherButtons!  {
-            if isRadioButton.isSelected {
+        for radioButton in self.otherButtons!  {
+            if radioButton.isSelected {
                 selectedButtons .add(self)
             }
         }
@@ -269,8 +299,8 @@ public class  ISRadioButton: UIButton {
     
     public func deselectOtherButtons() {
         if self.otherButtons != nil {
-            for isRadioButton in self.otherButtons!  {
-                isRadioButton.isSelected = false
+            for radioButton in self.otherButtons!  {
+                radioButton.isSelected = false
             }
         }
     }
@@ -279,12 +309,12 @@ public class  ISRadioButton: UIButton {
     
     public func unSelectedButtons() -> NSArray{
         let unSelectedButtons:NSMutableArray = NSMutableArray ()
-        if self.isSelected {
-            unSelectedButtons .add(self)
+        if self.isSelected == false {
+            unSelectedButtons.add(self)
         }
         for isRadioButton in self.otherButtons!  {
-            if isRadioButton.isSelected {
-                unSelectedButtons .add(self)
+            if isRadioButton.isSelected == false {
+                unSelectedButtons.add(self)
             }
         }
         return unSelectedButtons ;
@@ -309,21 +339,40 @@ public class  ISRadioButton: UIButton {
     // MARK: -- UIControl
     
     override public var isSelected: Bool {
-        didSet(oldValue) {
-            if (multipleSelectionEnabled) {
-                if oldValue == true && self.isSelected == true {
-                    self.isSelected = false
-                }
-            }
-            else {
-                if isSelected {
-                    self.deselectOtherButtons()
+        
+        didSet {
+            
+            if ((multipleSelectionEnabled || (oldValue != self.isSelected && self.icon.accessibilityIdentifier == ISRadioButton.kGeneratedIconName && self.iconSelected.accessibilityIdentifier == ISRadioButton.kGeneratedIconName)) && self.animationDuration > 0.0) {
+                
+                let animation = CABasicAnimation(keyPath: "contents")
+                
+                if self.isSelected {
+                    animation.fromValue = self.iconSelected.cgImage
                 }else{
-//                    self.isSelected = true
+                    animation.fromValue = self.icon.cgImage
+                }
+                
+                if self.isSelected {
+                    animation.toValue = self.icon.cgImage
+                }else{
+                    animation.toValue = self.iconSelected.cgImage
+                }
+                animation.duration = self.animationDuration
+                self.imageView?.layer.add(animation, forKey:"icon" )
+            }
+            
+            if (multipleSelectionEnabled) {
+                if oldValue == true && self.isSelected == false {
+                    super.isSelected = false
+                }
+            }else {
+                if ( oldValue == false && self.isSelected == true ) {
+                     self.deselectOtherButtons()
                 }
             }
         }
     }
+    
     
     // MARK: -- UIView
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57A9C61A1E59D533009824F6 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A9C6191E59D533009824F6 /* NewViewController.swift */; };
 		84122E101C1993C50032B8FF /* ISAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84122E0F1C1993C50032B8FF /* ISAppDelegate.swift */; };
 		84122E121C1993C50032B8FF /* ISViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84122E111C1993C50032B8FF /* ISViewController.swift */; };
 		84122E151C1993C50032B8FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84122E131C1993C50032B8FF /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57A9C6191E59D533009824F6 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		84122E0C1C1993C50032B8FF /* ISRadioButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISRadioButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84122E0F1C1993C50032B8FF /* ISAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISAppDelegate.swift; sourceTree = "<group>"; };
 		84122E111C1993C50032B8FF /* ISViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				84122E0F1C1993C50032B8FF /* ISAppDelegate.swift */,
 				84122E111C1993C50032B8FF /* ISViewController.swift */,
 				84122E211C1994E90032B8FF /* ISRadioButton.swift */,
+				57A9C6191E59D533009824F6 /* NewViewController.swift */,
 				84122E131C1993C50032B8FF /* Main.storyboard */,
 				84122E161C1993C50032B8FF /* Assets.xcassets */,
 				84122E181C1993C50032B8FF /* LaunchScreen.storyboard */,
@@ -98,7 +101,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = TheGoal;
 				TargetAttributes = {
 					84122E0B1C1993C50032B8FF = {
@@ -149,6 +152,7 @@
 				84122E221C1994E90032B8FF /* ISRadioButton.swift in Sources */,
 				84122E121C1993C50032B8FF /* ISViewController.swift in Sources */,
 				84122E101C1993C50032B8FF /* ISAppDelegate.swift in Sources */,
+				57A9C61A1E59D533009824F6 /* NewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,8 +191,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -232,8 +238,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
