@@ -362,8 +362,10 @@ public class  ISRadioButton: UIButton {
             }
             
             if (multipleSelectionEnabled) {
-                if oldValue == true && self.isSelected == false {
+                if oldValue == true && self.isSelected == true {
                     super.isSelected = false
+                }else{
+                    super.isSelected = true
                 }
             }else {
                 if ( oldValue == false && self.isSelected == true ) {

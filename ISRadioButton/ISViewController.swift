@@ -112,10 +112,10 @@ class ISViewController: UIViewController {
         }else{
             if isRadioButton.multipleSelectionEnabled{
                 for radioButton in isRadioButton.otherButtons! {
-                    print("%@ is selected.\n", radioButton.titleLabel!.text);
+                    print("%@ is selected.\n", radioButton.titleLabel!.text ?? "");
                 }
             }else{
-                print("%@ is selected.\n", isRadioButton.titleLabel!.text);
+                print("%@ is selected.\n", isRadioButton.titleLabel!.text ?? "");
             }
         }
     }
