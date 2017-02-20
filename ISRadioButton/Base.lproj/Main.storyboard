@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="a2b-a9-LfN" kind="relationship" relationship="rootViewController" id="Pm4-5U-YYP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2uJ-Oz-dHC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnp-fw-OPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -691,10 +691,10 @@
             </objects>
             <point key="canvasLocation" x="-1028" y="-475"/>
         </scene>
-        <!--View Controller-->
+        <!--New View Controller-->
         <scene sceneID="geJ-RO-jLV">
             <objects>
-                <viewController id="a2b-a9-LfN" sceneMemberID="viewController">
+                <viewController id="a2b-a9-LfN" customClass="NewViewController" customModule="ISRadioButton" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MhP-TK-18y"/>
                         <viewControllerLayoutGuide type="bottom" id="dIh-Fd-TBR"/>
@@ -704,7 +704,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cL-5H-Lji" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="61" width="71" height="30"/>
+                                <rect key="frame" x="147" y="105" width="71" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="Imj-3U-kcR"/>
                                 </constraints>
@@ -721,6 +721,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnSelected:" destination="a2b-a9-LfN" eventType="touchDown" id="zkA-DG-rOY"/>
                                     <outletCollection property="otherButtons" destination="5cL-5H-Lji" collectionClass="NSMutableArray" id="JpV-Jk-2PO"/>
                                     <outletCollection property="otherButtons" destination="TLy-9n-q9F" collectionClass="NSMutableArray" id="RGj-bj-QqF"/>
                                     <outletCollection property="otherButtons" destination="yHi-kQ-GNC" collectionClass="NSMutableArray" id="YWH-ZM-F5J"/>
@@ -744,7 +745,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLy-9n-q9F" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="61" width="77" height="30"/>
+                                <rect key="frame" x="250" y="105" width="77" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="aCs-Jo-x8c"/>
                                 </constraints>
@@ -753,7 +754,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwX-lg-3bb" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="122" width="79" height="31"/>
+                                <rect key="frame" x="147" y="166" width="79" height="31"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -764,7 +765,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHi-kQ-GNC" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="25" y="122" width="78" height="30"/>
+                                <rect key="frame" x="25" y="166" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zbM-S7-gBR"/>
                                 </constraints>
@@ -773,19 +774,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDT-Pr-8DX" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="122" width="77" height="31"/>
+                                <rect key="frame" x="250" y="166" width="77" height="31"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM4-6T-pTz" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="189" width="79" height="31"/>
+                                <rect key="frame" x="147" y="233" width="79" height="31"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgN-UX-B7Y" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="25" y="189" width="78" height="30"/>
+                                <rect key="frame" x="25" y="233" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SSQ-Qp-O3I"/>
                                 </constraints>
@@ -794,19 +795,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27c-BQ-SYN" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="189" width="77" height="31"/>
+                                <rect key="frame" x="250" y="233" width="77" height="31"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyb-IV-IJk" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="257" width="79" height="30"/>
+                                <rect key="frame" x="147" y="301" width="79" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obD-OS-q92" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="25" y="257" width="78" height="30"/>
+                                <rect key="frame" x="25" y="301" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8XT-tU-eH4"/>
                                 </constraints>
@@ -815,19 +816,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PE-NS-Ywv" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="257" width="77" height="30"/>
+                                <rect key="frame" x="250" y="301" width="77" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwz-pg-XRv" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="328" width="79" height="30"/>
+                                <rect key="frame" x="147" y="372" width="79" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQW-1w-1vy" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="25" y="328" width="78" height="30"/>
+                                <rect key="frame" x="25" y="372" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nEx-zX-sBa"/>
                                 </constraints>
@@ -836,19 +837,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocQ-Zz-I42" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="328" width="77" height="30"/>
+                                <rect key="frame" x="250" y="372" width="77" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-AB-D5i" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="147" y="400" width="79" height="30"/>
+                                <rect key="frame" x="147" y="444" width="79" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfe-ZI-9jU" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="25" y="400" width="78" height="30"/>
+                                <rect key="frame" x="25" y="444" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Vhk-A6-e3g"/>
                                 </constraints>
@@ -875,7 +876,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-hw-srA" customClass="ISRadioButton" customModule="ISRadioButton" customModuleProvider="target">
-                                <rect key="frame" x="250" y="400" width="77" height="30"/>
+                                <rect key="frame" x="250" y="444" width="77" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -971,6 +972,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vcD-oV-4SV"/>
+                    <connections>
+                        <outlet property="btn1" destination="lfj-Gu-GnB" id="Gkh-52-j2v"/>
+                        <outlet property="btn2" destination="5cL-5H-Lji" id="D7b-Rj-Nrh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPt-fc-SkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

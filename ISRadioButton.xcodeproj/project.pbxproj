@@ -64,8 +64,8 @@
 			children = (
 				84122E0F1C1993C50032B8FF /* ISAppDelegate.swift */,
 				84122E111C1993C50032B8FF /* ISViewController.swift */,
-				84122E211C1994E90032B8FF /* ISRadioButton.swift */,
 				57A9C6191E59D533009824F6 /* NewViewController.swift */,
+				84122E211C1994E90032B8FF /* ISRadioButton.swift */,
 				84122E131C1993C50032B8FF /* Main.storyboard */,
 				84122E161C1993C50032B8FF /* Assets.xcassets */,
 				84122E181C1993C50032B8FF /* LaunchScreen.storyboard */,

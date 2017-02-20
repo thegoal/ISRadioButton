@@ -10,10 +10,26 @@ import UIKit
 
 class NewViewController: UIViewController {
 
+    @IBOutlet var btn1:ISRadioButton!
+    @IBOutlet var btn2:ISRadioButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.btn1.isSelected = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        self.btn1.isSelected = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+//        self.btn1.isSelected = true
+    }
+    
+    @IBAction func btnSelected(_ isRadioButton:ISRadioButton){
+        self.btn2.isSelected = true
     }
 
     override func didReceiveMemoryWarning() {

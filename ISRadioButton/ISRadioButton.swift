@@ -342,23 +342,24 @@ public class  ISRadioButton: UIButton {
         
         didSet {
             
-            if ((multipleSelectionEnabled || (oldValue != self.isSelected && self.icon.accessibilityIdentifier == ISRadioButton.kGeneratedIconName && self.iconSelected.accessibilityIdentifier == ISRadioButton.kGeneratedIconName)) && self.animationDuration > 0.0) {
+            if (multipleSelectionEnabled || oldValue != self.isSelected && self.animationDuration > 0.0) {
                 
-                let animation = CABasicAnimation(keyPath: "contents")
-                
-                if self.isSelected {
-                    animation.fromValue = self.iconSelected.cgImage
-                }else{
-                    animation.fromValue = self.icon.cgImage
+                if self.iconSelected != nil && self.icon != nil {
+                     let animation = CABasicAnimation(keyPath: "contents")
+                    if self.isSelected {
+                        animation.fromValue = self.iconSelected.cgImage
+                    }else{
+                        animation.fromValue = self.icon.cgImage
+                    }
+                    
+                    if self.isSelected {
+                        animation.toValue = self.icon.cgImage
+                    }else{
+                        animation.toValue = self.iconSelected.cgImage
+                    }
+                    animation.duration = self.animationDuration
+                    self.imageView?.layer.add(animation, forKey:"icon" )
                 }
-                
-                if self.isSelected {
-                    animation.toValue = self.icon.cgImage
-                }else{
-                    animation.toValue = self.iconSelected.cgImage
-                }
-                animation.duration = self.animationDuration
-                self.imageView?.layer.add(animation, forKey:"icon" )
             }
             
             if (multipleSelectionEnabled) {
@@ -374,7 +375,6 @@ public class  ISRadioButton: UIButton {
             }
         }
     }
-    
     
     // MARK: -- UIView
     
