@@ -7,18 +7,18 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 2. It have multiple selection ability for both radio and square button
 
-##Preview
+## Preview
 
 ![screenshot1](ISRadioButton_screenshot1.png)
 
-##Adding ISRadioButton to your project
+##A dding ISRadioButton to your project
 
-###Source files:
+### Source files:
 *    Add ISRadioButton.swift in your project. (Demo is added for functionality test and help)
 
-##Usage
+## Usage
 
-###Add radio buttons in interface builder:
+### Add radio buttons in interface builder:
 
 1.  Put some UIButtons onto a View and change the UIButtons' type to "custom".
 
@@ -32,7 +32,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 	![set otherButtons outlet](set_otherButtons_outlet.png)
 
-###To customize ISRadioButton:
+### To customize ISRadioButton:
 
 *	Simply set properties directly in Interface Builder.
 
