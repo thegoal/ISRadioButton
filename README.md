@@ -11,7 +11,7 @@ Inspired by [DLRadioButton] (https://github.com/DavydLiu/DLRadioButton).  (Swift
 
 ![screenshot1](ISRadioButton_screenshot1.png)
 
-##A dding ISRadioButton to your project
+## A dding ISRadioButton to your project
 
 ### Source files:
 *    Add ISRadioButton.swift in your project. (Demo is added for functionality test and help)
